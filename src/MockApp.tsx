@@ -7,12 +7,13 @@ import Home from './components/home/home';
 import Contacts from './components/contacts/contacts';
 import Collections from './components/collections/collections';
 import Header from './components/header/header';
+import Footer from './components/footer/footer';
 
 function MockApp() {
   return (
-    <>
+    <div className="content-body">
       <Header></Header>
-      <main>
+      <main className="main">
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/About" element={<About />}></Route>
@@ -22,8 +23,8 @@ function MockApp() {
           <Route path="*" element={<UndefinedPage />}></Route>
         </Routes>
       </main>
-      <footer></footer>
-    </>
+      <Footer></Footer>
+    </div>
   );
 }
 

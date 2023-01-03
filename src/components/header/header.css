@@ -1,0 +1,33 @@
+@import '../../style-lib/ui_lib.css';
+
+.header {
+  background-color: var(--header_color);
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--main_content_width);
+  margin: 0 auto;
+  height: 70px;
+}
+
+.menu {
+  display: flex;
+  padding-left: 0;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.menu__link,
+.menu__auth {
+  text-decoration: none;
+  color: var(--header_links);
+  transition: .7s;
+}
+
+.menu__link:hover,
+.menu__auth:hover {
+  color: var(--header_links_hover);
+}

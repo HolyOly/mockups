@@ -1,0 +1,18 @@
+@import '../../style-lib/ui_lib.css';
+
+.footer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: var(--header_color);
+  /* temporary */
+  color: var(--header_links);
+}
+
+.footer_info {
+  margin: 0 auto;
+}

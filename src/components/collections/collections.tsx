@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export class Collections extends Component {
   render() {
-    return <div>Collection</div>;
+    return <h3>Collection</h3>;
   }
 }
 

@@ -2,8 +2,12 @@
   display: flex;
 }
 
+.home__wrapper {
+  display: flex;
+}
+
 .home__filter {
-  width: 400px;
+  width: 300px;
 }
 
 .home__main {
@@ -14,6 +18,6 @@
   align-items: center;
   gap: 20px;
   padding-bottom: 80px;
-  padding-top: 30px;
+  padding-top: 40px;
 }
 

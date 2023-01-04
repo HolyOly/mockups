@@ -1,0 +1,8 @@
+:root {
+  --header_color: #1d262d;
+  --white: #ffffff;
+  --header_links: #c7ebff;
+  --header_links_hover: #c7ebffa3;
+
+  --main_content_width: 90%;
+}

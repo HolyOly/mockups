@@ -9,6 +9,7 @@ import img8 from '../assets/img/8.png';
 import img9 from '../assets/img/9.png';
 import img10 from '../assets/img/10.png';
 import img11 from '../assets/img/11.png';
+import img12 from '../assets/img/12.png';
 
 export const cardsInfo: ICard[] = [
   {
@@ -63,6 +64,11 @@ export const cardsInfo: ICard[] = [
   },
   {
     src: img11,
+    tags: ['image', 'background'],
+    alt: '3',
+  },
+  {
+    src: img12,
     tags: ['image', 'background'],
     alt: '3',
   },

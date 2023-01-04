@@ -1,0 +1,10 @@
+.card {
+  min-width: 80px;
+  min-height: 80px;
+  width: 250px;
+  height: auto;
+}
+
+.card__img {
+  width: 100%;
+}

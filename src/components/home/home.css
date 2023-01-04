@@ -1,0 +1,19 @@
+.home {
+  display: flex;
+}
+
+.home__filter {
+  width: 400px;
+}
+
+.home__main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 80px;
+  padding-top: 30px;
+}
+

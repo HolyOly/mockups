@@ -1,7 +1,7 @@
 @import '../../style-lib/ui_lib.css';
 
 .footer {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   bottom: 0;

@@ -7,10 +7,19 @@
 }
 
 .home__filter {
-  width: 300px;
+  width: 20%;
+  padding-top: 30px;
+}
+
+.home__filter-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 10px;
 }
 
 .home__main {
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -31,8 +40,18 @@
   }
 
   .home__filter {
-    display: flex;
-    justify-content: center;
-    align-self: center;
+    width: 100%;
   }
+
+  .home__filter-header {
+    width: 250px;
+  }
+  
+  .home__main {
+    width: 100%;
+  }
+}
+
+.svg-filter {
+  width: 30px;
 }

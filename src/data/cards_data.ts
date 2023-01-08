@@ -24,7 +24,7 @@ export const cardsInfo: ICard[] = [
   },
   {
     src: img3,
-    tags: ['stationery', 'background'],
+    tags: ['stationery', 'blue'],
     alt: '3',
   },
   {
@@ -39,7 +39,7 @@ export const cardsInfo: ICard[] = [
   },
   {
     src: img6,
-    tags: ['image', 'background'],
+    tags: ['glass', 'wall'],
     alt: '3',
   },
   {

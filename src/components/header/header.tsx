@@ -7,6 +7,11 @@ export class Header extends Component {
     return (
       <header className="header">
         <div className="wrap">
+          <menu className="burger">
+            <span className="burger__menu"></span>
+            <span className="burger__menu"></span>
+            <span className="burger__menu"></span>
+          </menu>
           <menu className="menu menu__left">
             <Link className="menu__link" to="/About">
               About

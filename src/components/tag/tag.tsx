@@ -1,9 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { createRefFromTag } from '../../utils/card_helpers';
+import './tag.css';
 
-export class Tag extends Component {
-  render() {
-    return <div>tag</div>;
-  }
+function Tag(props: { tag: string }) {
+  return (
+    <li>
+      <a href={createRefFromTag(props.tag)} className="tag">
+        {props.tag}
+      </a>
+    </li>
+  );
 }
 
 export default Tag;

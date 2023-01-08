@@ -5,7 +5,9 @@
   --header_links_hover: #c7ebffa3;
   --tag_background: #585654b4;
 
-  --main_content_width: 90%;
+  --main_content_width: 1200px;
+  --main_content_width_mobile: 300px;
+  --main_content_width_tablet: 720px;
 
   --font-size-xs: 15px;
 }

@@ -14,27 +14,27 @@ import img12 from '../assets/img/12.png';
 export const cardsInfo: ICard[] = [
   {
     src: img1,
-    tags: ['image', 'background'],
+    tags: ['office', 'logo'],
     alt: '1',
   },
   {
     src: img2,
-    tags: ['image', 'background'],
+    tags: ['stationery', 'background'],
     alt: '2',
   },
   {
     src: img3,
-    tags: ['image', 'background'],
+    tags: ['stationery', 'background'],
     alt: '3',
   },
   {
     src: img4,
-    tags: ['image', 'background'],
+    tags: ['logo', 'background'],
     alt: '3',
   },
   {
     src: img5,
-    tags: ['image', 'background'],
+    tags: ['logo', 'background'],
     alt: '3',
   },
   {

@@ -1,0 +1,10 @@
+@import '../../style-lib/ui_lib.css';
+
+.tag {
+  background-color: var(--tag_background);
+  text-decoration: none;
+  color: var(--white);
+  padding: 4px;
+  border-radius: 5px;
+  font-size: var(--font-size-xs);
+}

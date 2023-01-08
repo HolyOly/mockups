@@ -31,3 +31,21 @@
 .menu__auth:hover {
   color: var(--header_links_hover);
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .menu {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .burger__menu {
+    height: 3px;
+    background-color: aliceblue;
+    width: 32px;
+    margin: 3px;
+  }
+}

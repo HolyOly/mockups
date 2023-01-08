@@ -32,6 +32,10 @@
   color: var(--header_links_hover);
 }
 
+.lang {
+  color: antiquewhite;
+}
+
 @media (min-width: 320px) and (max-width: 767px) {
   .menu {
     display: none;
@@ -51,5 +55,15 @@
     background-color: aliceblue;
     width: 32px;
     margin: 3px;
+  }
+
+  .wrap {
+    width: var(--main_content_width_mobile);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .wrap {
+    width: var(--main_content_width_tablet);
   }
 }

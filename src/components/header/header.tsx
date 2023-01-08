@@ -27,7 +27,7 @@ export class Header extends Component {
             </Link>
           </menu>
           <menu className="menu menu__right">
-            <div>Lang</div>
+            <div className="lang">Lang</div>
             <Link className="menu__auth" to="/Auth">
               Auth
             </Link>

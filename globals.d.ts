@@ -6,3 +6,9 @@ declare interface ICard {
   tags: string[];
   alt: string;
 }
+
+declare interface IFilter {
+  icon: React.ReactElement;
+  name: string;
+  params: React.ReactElement;
+}

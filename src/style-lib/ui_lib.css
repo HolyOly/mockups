@@ -11,3 +11,13 @@
 
   --font-size-xs: 15px;
 }
+
+.filter__items {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  justify-content: space-between;
+  gap: 10px;
+}

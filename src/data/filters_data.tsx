@@ -1,6 +1,10 @@
 import { ReactComponent as ColorSvg } from '../assets/svg/color.svg';
 import { ReactComponent as PeopleSvg } from '../assets/svg/people.svg';
 import { ReactComponent as StyleSvg } from '../assets/svg/style.svg';
+import { Color } from '../components/filters/items/color/color';
+import '../style-lib/ui_lib.css';
+
+const colorObject = ['black', 'gray', 'brown', 'green', 'red'];
 
 export const filtersData: IFilter[] = [
   {
@@ -10,7 +14,13 @@ export const filtersData: IFilter[] = [
       </div>
     ),
     name: 'Color',
-    params: <div></div>,
+    params: (
+      <div className="filter__items">
+        {colorObject.map((color, index) => (
+          <Color color={color} key={index}></Color>
+        ))}
+      </div>
+    ),
   },
   {
     icon: (
@@ -19,7 +29,7 @@ export const filtersData: IFilter[] = [
       </div>
     ),
     name: 'People',
-    params: <div></div>,
+    params: <div>person</div>,
   },
   {
     icon: (
@@ -28,6 +38,6 @@ export const filtersData: IFilter[] = [
       </div>
     ),
     name: 'Style',
-    params: <div></div>,
+    params: <div>style</div>,
   },
 ];

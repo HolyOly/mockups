@@ -17,3 +17,11 @@
 .filter__marker {
   width: 25px;
 }
+
+.hidden-filter {
+  display: none;
+}
+
+/* .filter__body {
+  height: 40px;
+} */

@@ -3,7 +3,7 @@ import './home.css';
 import { cardsInfo } from '../../data/cards_data';
 import Card from '../card/card';
 import '../../assets/img/1.png';
-import SearchInput from '../search_el/search_el';
+import { SearchInput } from '../search_el/search_el';
 import { filtersData } from '../../data/filters_data';
 import Filter from '../filters/filter';
 import { ReactComponent as FilterSvg } from '../../assets/svg/filter.svg';
@@ -12,7 +12,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <SearchInput></SearchInput>
+        <SearchInput onChangeHandler={undefined}></SearchInput>
         <div className="home">
           <div className="home__wrapper">
             <div className="home__filter">

@@ -5,7 +5,7 @@ import About from './components/about/about';
 import { UndefinedPage } from './components/notFound/notFound';
 import Home from './components/home/home';
 import Contacts from './components/contacts/contacts';
-import Collections from './components/collections/collections';
+import { Collections } from './components/collections/collections';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 

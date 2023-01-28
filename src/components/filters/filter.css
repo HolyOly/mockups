@@ -22,6 +22,6 @@
   display: none;
 }
 
-/* .filter__body {
-  height: 40px;
-} */
+.filter__body {
+  transition: .7s;
+}

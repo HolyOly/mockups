@@ -1,0 +1,48 @@
+.collection-page {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+
+.query-title {
+  text-align: center;
+  padding: 10px;
+}
+
+.collection {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  gap: 15px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-auto-flow: dense;
+}
+
+.img {
+  max-height: 400px;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .collection-grid {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
+
+  .img {
+    max-width: 270px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .collection-grid {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+  }
+}

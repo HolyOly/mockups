@@ -6,8 +6,8 @@ import './header.css';
 
 export function Header() {
   const [windowSize, setSize] = useState(document.body.clientWidth);
-  const [isMobile, setMobileMode] = useState(false);
   const [isMobileMenu, setMobileMenu] = useState(false);
+  const inputRef = React.useRef<HTMLElement>(null);
 
   document.addEventListener('resize', () => setSize(document.body.clientWidth));
 
@@ -15,20 +15,34 @@ export function Header() {
     setSize(document.body.clientWidth);
   };
 
+  useOutsideAlerter(inputRef);
+
+  function useOutsideAlerter(ref: React.RefObject<HTMLElement>) {
+    useEffect(() => {
+      function handleClickOutside({ target }: MouseEvent) {
+        if (ref.current && !ref.current?.contains(target as Node)) {
+          setMobileMenu(false);
+        }
+      }
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  }
+
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-    if (windowSize < 720) {
-      setMobileMode(true);
-    } else {
-      setMobileMode(false);
-    }
-  }, [windowSize]);
+  }, [windowSize, isMobileMenu]);
 
   return (
     <header className="header">
       <div className="wrap">
-        <Burger onClick={() => setMobileMenu(true)}></Burger>
-        <MobileMenu isOpen={false}></MobileMenu>
+        <Burger
+          onClick={() => (isMobileMenu ? setMobileMenu(false) : setMobileMenu(true))}
+          open={isMobileMenu}
+        ></Burger>
+        {isMobileMenu && <MobileMenu refProp={inputRef}></MobileMenu>}
         <menu className="menu menu__left">
           <Link className="menu__link" to="/About">
             About

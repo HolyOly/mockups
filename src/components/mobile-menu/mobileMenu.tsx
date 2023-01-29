@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './mobileMenu.css';
 
-export function MobileMenu(props: { isOpen: boolean }) {
+export function MobileMenu(props: { refProp: React.LegacyRef<HTMLElement> }) {
   return (
-    <menu className="menu__mobile">
+    <menu ref={props.refProp} className="menu__mobile">
       <Link className="menu__mobile-item" to="/About">
         About
       </Link>

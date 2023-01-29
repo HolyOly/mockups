@@ -2,6 +2,9 @@
 
 .header {
   background-color: var(--header_color);
+  display: block;
+  width: 100%;
+  height: 70px;
 }
 
 .wrap {
@@ -34,6 +37,12 @@
 
 .lang {
   color: antiquewhite;
+}
+
+@media (min-width: 0px) and (max-width: 319px) {
+  .menu {
+    display: none;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {

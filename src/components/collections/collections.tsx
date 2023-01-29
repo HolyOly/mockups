@@ -9,25 +9,33 @@ const initialQuery = 'office';
 export function Collections() {
   const [collections, setCollections] = useState(initialArr);
   const [valueInput, setInputVal] = useState(initialQuery);
-
-  const getCollections = async () => {
-    const response = await fetch(makeUrl(valueInput));
-    const collectionsResp: ICollections = await response.json();
-    // console.log(collectionsResp);
-    setCollections(collectionsResp.results);
-  };
+  const [isError, setRespError] = useState(false);
+  const [isLoading, setLoadingStatus] = useState(false);
 
   //TODO Learn useCallback hook
 
   const getValueFromInput = (e: ChangeEvent) => {
     const target = e.target as HTMLInputElement;
+    setLoadingStatus(true);
     setInputVal(target.value);
-    getCollections();
   };
 
   useEffect(() => {
-    getCollections();
-  }, [getCollections]);
+    fetch(makeUrl(valueInput))
+      .then(async (resp) => {
+        if (resp.status >= 200 && resp.status <= 299) {
+          const collectionsResp: ICollections = await resp.json();
+          setCollections(collectionsResp.results);
+          return collections;
+        } else {
+          setRespError(true);
+          setLoadingStatus(false);
+        }
+      })
+      .finally(() => {
+        setLoadingStatus(false);
+      });
+  }, [collections, valueInput]);
 
   return (
     <div className="collection-page">
@@ -35,7 +43,9 @@ export function Collections() {
       <SearchInput onChangeHandler={getValueFromInput}></SearchInput>
       <div className="collections-wrapper">
         <ul className="collection">
-          <h4 className="query-title">{valueInput}</h4>
+          <h4 className="query-title">
+            {isLoading ? 'Loading...' : isError ? 'Error response' : valueInput ? valueInput : ''}
+          </h4>
           <li className="collection-grid">
             {collections.map((collection: ICollectionItem, index: number) => {
               return (

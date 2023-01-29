@@ -1,0 +1,22 @@
+@media (min-width: 320px) and (max-width: 767px) {
+  .burger {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 32px;
+    height: 27px;
+    padding-left: 0px;
+    transition: .7s;
+  }
+
+  .burger:hover {
+    cursor: pointer;
+  }
+
+  .burger__menu {
+    height: 3px;
+    background-color: aliceblue;
+    width: 32px;
+    margin: 3px;
+  }
+}

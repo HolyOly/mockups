@@ -1,0 +1,15 @@
+.menu__mobile {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  margin-top: 0;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: -500px;
+  bottom: 0;
+  width: 70%;
+  max-width: 300px;
+  background-color: rgba(0, 0, 0, 0.639);
+  overflow: hidden;
+}

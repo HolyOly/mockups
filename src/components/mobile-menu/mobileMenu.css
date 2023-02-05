@@ -1,3 +1,5 @@
+@import '../../style-lib/ui_lib.css';
+
 .menu__mobile {
   display: flex;
   position: fixed;
@@ -11,6 +13,26 @@
   bottom: 0;
   width: 70%;
   max-width: 300px;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.9);
   overflow: hidden;
+  gap: 35px;
+  animation: moveToRight 1s ease-in-out;
+}
+
+@keyframes moveToRight {
+  0% {
+      transform: translateX(-200px);
+  }
+  100% {
+      transform: translateX(0px);
+  }
+}
+
+.menu__mobile .menu__mobile-item,
+.menu__mobile .lang {
+  font-size: var(--font-size-accent);
+}
+
+.menu__mobile-item:visited {
+  color: rgb(197, 244, 232);
 }

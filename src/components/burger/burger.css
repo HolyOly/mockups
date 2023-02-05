@@ -1,7 +1,6 @@
 @media (min-width: 320px) and (max-width: 767px) {
   .burger {
     display: flex;
-    /* position: absolute; */
     justify-content: flex-start;
     flex-direction: column;
     width: 32px;
@@ -20,6 +19,5 @@
     background-color: aliceblue;
     width: 32px;
     margin: 3px;
-    /* left: 0; */
   }
 }

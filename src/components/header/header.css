@@ -19,7 +19,6 @@
 .burger-wrap {
   position: fixed;
   display: flex;
-  /* top: 20; */
   left: 40px;
   transition: .7s;
   z-index: 5;

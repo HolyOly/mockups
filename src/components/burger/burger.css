@@ -1,13 +1,14 @@
 @media (min-width: 320px) and (max-width: 767px) {
   .burger {
     display: flex;
+    /* position: absolute; */
     justify-content: flex-start;
     flex-direction: column;
     width: 32px;
     height: 27px;
     padding-left: 0px;
     transition: .7s;
-    z-index: 2;
+    z-index: 5;
   }
 
   .burger:hover {
@@ -19,9 +20,6 @@
     background-color: aliceblue;
     width: 32px;
     margin: 3px;
+    /* left: 0; */
   }
-}
-
-.animation {
-  transform: rotate(180deg);
 }

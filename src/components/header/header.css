@@ -16,6 +16,15 @@
   height: 70px;
 }
 
+.burger-wrap {
+  position: fixed;
+  display: flex;
+  /* top: 20; */
+  left: 40px;
+  transition: .7s;
+  z-index: 5;
+}
+
 .menu {
   display: flex;
   padding-left: 0;
@@ -68,6 +77,10 @@
 
   .wrap {
     width: var(--main_content_width_mobile);
+  }
+
+  .animation {
+    transform: rotate(180deg);
   }
 }
 

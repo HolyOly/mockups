@@ -12,3 +12,7 @@ declare interface IFilter {
   name: string;
   params: React.ReactElement;
 }
+
+declare interface IEventTarget {
+  target: Node | null;
+}

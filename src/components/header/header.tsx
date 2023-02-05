@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Burger } from '../burger/burger';
@@ -16,18 +15,16 @@ export function Header() {
     ref2: React.RefObject<HTMLElement>
   ) {
     useEffect(() => {
-      function handleClickOutside(event: { target: any }) {
-        if (
-          ref1.current &&
-          !ref1.current.contains(event.target) &&
-          !ref2.current?.contains(event.target)
-        ) {
+      function handleClickOutside(target: Node | null) {
+        if (!ref1.current?.contains(target) && !ref2.current?.contains(target)) {
           setOpenMenu(false);
         }
       }
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('mousedown', (e) => handleClickOutside(e.target as Node | null));
       return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
+        document.removeEventListener('mousedown', (e) =>
+          handleClickOutside(e.target as Node | null)
+        );
       };
     }, [ref1, ref2]);
   }

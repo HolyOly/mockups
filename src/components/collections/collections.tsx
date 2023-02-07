@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { ICollectionItem, ICollections, makeUrl } from '../../services/getCollectios';
 import { SearchInput } from '../search_el/search_el';
 import './collections.css';
@@ -11,6 +11,7 @@ export function Collections() {
   const [valueInput, setInputVal] = useState(initialQuery);
   const [isError, setRespError] = useState(false);
   const [isLoading, setLoadingStatus] = useState(false);
+  const searchVal = useRef<HTMLInputElement>(null);
 
   //TODO Learn useCallback hook
 
@@ -40,7 +41,7 @@ export function Collections() {
   return (
     <div className="collection-page">
       <h3>Collections</h3>
-      <SearchInput onChangeHandler={getValueFromInput}></SearchInput>
+      <SearchInput refProp={searchVal} onChangeHandler={getValueFromInput}></SearchInput>
       <div className="collections-wrapper">
         <ul className="collection">
           <h4 className="query-title">

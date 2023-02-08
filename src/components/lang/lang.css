@@ -1,0 +1,13 @@
+@import '../../style-lib/ui_lib.css';
+
+.lang__btn {
+  border: none;
+  background-color: var(--header_color);
+  color: var(--light_beige_text);
+  transition: .7s;
+}
+
+.lang__btn:hover {
+  cursor: pointer;
+  background-color: var(--white_transparent);
+}

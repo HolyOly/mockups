@@ -43,10 +43,6 @@
   color: var(--header_links_hover);
 }
 
-.lang {
-  color: antiquewhite;
-}
-
 @media (min-width: 0px) and (max-width: 319px) {
   .menu {
     display: none;

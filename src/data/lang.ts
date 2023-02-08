@@ -1,4 +1,5 @@
-export const langPack = {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export const langPack: any = {
   headerAbout: {
     en: 'About',
     ru: 'О нас',
@@ -6,5 +7,13 @@ export const langPack = {
   headerContacts: {
     en: 'Contacts',
     ru: 'Контакты',
+  },
+  headerHome: {
+    en: 'Home',
+    ru: 'Глвная',
+  },
+  headerCollections: {
+    en: 'Collections',
+    ru: 'Галерея',
   },
 };

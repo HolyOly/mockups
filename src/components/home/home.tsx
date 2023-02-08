@@ -14,6 +14,7 @@ const temoraryBufferForQuery: string[] = [];
 
 enum ReducerActionKind {
   TYPING = 'TYPING',
+  NO_TYPING = 'NO_TYPING',
   GET_QUERY = 'GET_QUERY',
 }
 
@@ -43,6 +44,11 @@ const reducer = (state: IDefaultState, action: IReducerAction): IDefaultState =>
         ...state,
         boxUnderSearchbar: 'typing...',
       };
+    case ReducerActionKind.NO_TYPING:
+      return {
+        ...state,
+        boxUnderSearchbar: '',
+      };
     case ReducerActionKind.GET_QUERY:
       return {
         ...state,
@@ -60,6 +66,7 @@ export function Home() {
   const handleSearchBar = (e: ChangeEvent) => {
     e.preventDefault();
     dispatch({ type: ReducerActionKind.TYPING });
+    setTimeout(() => dispatch({ type: ReducerActionKind.NO_TYPING }), 1000);
   };
 
   const hendlerPressEnter = () => {
@@ -87,6 +94,7 @@ export function Home() {
   return (
     <div>
       <SearchInput refProp={searchVal} onChangeHandler={handleSearchBar}></SearchInput>
+      {state.boxUnderSearchbar && <div className="typing-box">{state.boxUnderSearchbar}</div>}
       <div className="home">
         <div className="home__wrapper">
           <div className="home__filter">

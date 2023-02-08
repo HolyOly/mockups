@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getLang } from '../../hooks/lang';
 import { Burger } from '../burger/burger';
+import { LangContainer } from '../lang/langComponent';
 import { MobileMenu } from '../mobile-menu/mobileMenu';
 import './header.css';
 
-export function Header() {
+getLang('headerAbout', 'en');
+interface IHeader {
+  lang: string;
+}
+
+export function Header(props: IHeader) {
   const [windowSize, setSize] = useState(document.body.clientWidth);
   const [isOpenMenu, setOpenMenu] = useState(false);
   const mobileMenuRef = React.useRef<HTMLElement>(null);
@@ -55,20 +62,20 @@ export function Header() {
         {isOpenMenu && <MobileMenu refProp={mobileMenuRef}></MobileMenu>}
         <menu className="menu menu__left">
           <Link className="menu__link" to="/About">
-            About
+            {getLang('headerAbout', props.lang)}
           </Link>
           <Link className="menu__link" to="/">
-            Home
+            {getLang('headerHome', props.lang)}
           </Link>
           <Link className="menu__link" to="/Contacts">
-            Contacts
+            {getLang('headerContacts', props.lang)}
           </Link>
           <Link className="menu__link" to="/Collections">
-            Collections
+            {getLang('headerCollections', props.lang)}
           </Link>
         </menu>
         <menu className="menu menu__right">
-          <div className="lang">Lang</div>
+          <LangContainer></LangContainer>
           <Link className="menu__auth" to="/Auth">
             Auth
           </Link>

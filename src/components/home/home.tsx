@@ -35,6 +35,7 @@ const defaultState: IDefaultState = {
 interface IReducerAction {
   type: ReducerActionKind;
 }
+
 //should always return something
 const reducer = (state: IDefaultState, action: IReducerAction): IDefaultState => {
   const { type } = action;

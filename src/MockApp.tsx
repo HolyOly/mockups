@@ -9,10 +9,14 @@ import { Collections } from './components/collections/collections';
 import { Header } from './components/header/header';
 import Footer from './components/footer/footer';
 
+export const langState = {
+  currentLang: 'en',
+};
+
 function MockApp() {
   return (
     <div className="content-body">
-      <Header></Header>
+      <Header lang={langState.currentLang}></Header>
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />}></Route>

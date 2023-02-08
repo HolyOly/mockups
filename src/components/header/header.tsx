@@ -6,7 +6,6 @@ import { LangContainer } from '../lang/langComponent';
 import { MobileMenu } from '../mobile-menu/mobileMenu';
 import './header.css';
 
-getLang('headerAbout', 'en');
 interface IHeader {
   lang: string;
 }

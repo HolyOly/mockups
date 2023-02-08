@@ -3,7 +3,7 @@
 .lang__btn {
   border: none;
   background-color: var(--header_color);
-  color: antiquewhite;
+  color: var(--light_beige_text);
   transition: .7s;
 }
 

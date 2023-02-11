@@ -1,27 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { experimentalArr } from '../../data/testData';
+import { ReactComponent as CloseSvg } from '../../assets/svg/close.svg';
 import './push.css';
-
-export interface IPerson {
-  name: string;
-  id: number;
-}
-
-export interface IList {
-  info: IPerson[];
-}
-
-interface IInitialContext {
-  removePerson: (id: number) => void;
-  users: IPerson[];
-}
 
 const UserContext = React.createContext<IInitialContext>({
   removePerson: () => {},
   users: [],
 });
 
-export function ContextApi() {
+export function NotificationList() {
   const [users, setUsers] = useState(experimentalArr);
 
   const removePerson = (id: number) => {
@@ -46,7 +33,7 @@ export function List() {
         <li className="Push-list__item" key={item.id}>
           <span className="Push-list__text">{item.name}</span>
           <button className="Push-list__btn" onClick={() => removePerson(item.id)}>
-            X
+            <CloseSvg></CloseSvg>
           </button>
         </li>
       ))}

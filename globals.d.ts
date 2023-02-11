@@ -12,3 +12,17 @@ declare interface IFilter {
   name: string;
   params: React.ReactElement;
 }
+
+declare interface IPerson {
+  name: string;
+  id: number;
+}
+
+declare interface IList {
+  info: IPerson[];
+}
+
+declare interface IInitialContext {
+  removePerson: (id: number) => void;
+  users: IPerson[];
+}

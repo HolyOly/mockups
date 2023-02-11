@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { experimentalArr } from '../../data/testData';
+import './push.css';
 
 export interface IPerson {
   name: string;
@@ -31,7 +32,6 @@ export function ContextApi() {
 
   return (
     <UserContext.Provider value={{ removePerson, users }}>
-      <h3>Prop drilling</h3>
       <List></List>
     </UserContext.Provider>
   );
@@ -41,11 +41,13 @@ export function List() {
   const { removePerson } = useContext(UserContext);
   const { users } = useContext(UserContext);
   return (
-    <ul>
+    <ul className="Push-list">
       {users.map((item: IPerson) => (
-        <li className="list" key={item.id}>
-          <span>{item.name}</span>
-          <button onClick={() => removePerson(item.id)}>X</button>
+        <li className="Push-list__item" key={item.id}>
+          <span className="Push-list__text">{item.name}</span>
+          <button className="Push-list__btn" onClick={() => removePerson(item.id)}>
+            X
+          </button>
         </li>
       ))}
     </ul>

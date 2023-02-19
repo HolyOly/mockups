@@ -2,12 +2,12 @@ import './MockApp.css';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import About from './components/about/about';
-import { UndefinedPage } from './components/notFound/notFound';
 import Home from './components/home/home';
 import Contacts from './components/contacts/contacts';
 import { Collections } from './components/collections/collections';
 import { Header } from './components/header/header';
 import Footer from './components/footer/footer';
+import { UndefinedPage } from './components/undefinedPage/undefinedPage';
 
 export const langState = {
   currentLang: 'en',

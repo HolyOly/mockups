@@ -58,7 +58,7 @@ export function Header(props: IHeader) {
         >
           <Burger refProp={burgerRef}></Burger>
         </div>
-        {isOpenMenu && <MobileMenu refProp={mobileMenuRef}></MobileMenu>}
+        <MobileMenu isClosing={!isOpenMenu} refProp={mobileMenuRef}></MobileMenu>
         <menu className="menu menu__left">
           <Link className="menu__link" to="/About">
             {getLang('headerAbout', props.lang)}

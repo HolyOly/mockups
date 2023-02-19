@@ -25,6 +25,9 @@ export function Header(props: IHeader) {
         if (!ref1.current?.contains(target) && !ref2.current?.contains(target)) {
           setOpenMenu(false);
         }
+        if (ref1.current?.contains(target) && target?.nodeName === 'A') {
+          setOpenMenu(false);
+        }
       }
       document.addEventListener('mousedown', (e) => handleClickOutside(e.target as Node | null));
       return () => {

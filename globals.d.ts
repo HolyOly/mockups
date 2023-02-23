@@ -26,3 +26,7 @@ declare interface IInitialContext {
   removePerson: (id: number) => void;
   users: IPerson[];
 }
+
+declare interface IInitLangContext {
+  changeLang: (lang: string) => void;
+}

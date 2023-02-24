@@ -8,18 +8,17 @@ import { Collections } from './components/collections/collections';
 import { Header } from './components/header/header';
 import Footer from './components/footer/footer';
 import { UndefinedPage } from './components/undefinedPage/undefinedPage';
-import { langObj, useLang } from './hooks/lang';
+import { useLang } from './hooks/lang';
 
 export const LangContext = React.createContext<IInitLangContext>({
   changeLang: () => {},
 });
 
 function MockApp() {
-  const { setLang, getLang } = useLang();
+  const { setLang, newLang } = useLang();
   const changeLang = (lang: string): void => {
-    langObj.curLang = lang;
-    setLang(lang);
-    console.log(langObj.curLang);
+    newLang.curLang = lang;
+    setLang(newLang.curLang);
   };
 
   return (

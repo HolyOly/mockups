@@ -55,3 +55,9 @@
 .menu__mobile-item:visited {
   color: rgb(197, 244, 232);
 }
+
+@media (min-width: 768px) {
+  .menu__mobile {
+    display: none;
+  }
+}

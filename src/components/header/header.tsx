@@ -12,7 +12,7 @@ export function Header() {
   const mobileMenuRef = React.useRef<HTMLElement>(null);
   const burgerRef = React.useRef<HTMLElement>(null);
 
-  const { setLang, getLang } = useLang();
+  const { getLang } = useLang();
 
   function useOutsideAlerter(
     ref1: React.RefObject<HTMLElement>,
@@ -75,7 +75,7 @@ export function Header() {
           </Link>
         </menu>
         <menu className="menu menu__right">
-          <LangContainer></LangContainer>
+          <LangContainer isMobile={false}></LangContainer>
           <Link className="menu__auth" to="/Auth">
             Auth
           </Link>

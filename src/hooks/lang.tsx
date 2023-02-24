@@ -1,22 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { langPack } from '../data/lang';
 
-export const langObj: { curLang: string } = {
+export const langStore: { curLang: string } = {
   curLang: 'en',
 };
 
 export function useLang() {
-  const [curLang, setLang] = useState(langObj.curLang);
+  const newLang = langStore;
+  const [curLang, setLang] = useState(langStore.curLang);
 
-  const getLang = (key: string) => {
-    return langPack[key][curLang];
-  };
+  const getLang = useCallback(
+    (key: string) => {
+      return langPack[key][newLang.curLang];
+    },
+    [newLang.curLang]
+  );
 
   useEffect(() => {
-    setLang(curLang);
-    setLang(langObj.curLang);
-    console.log('hook', curLang);
-  }, [curLang, getLang, setLang]);
+    setLang(newLang.curLang);
+  }, [getLang, curLang, setLang, newLang]);
 
-  return { setLang, getLang };
+  return { setLang, getLang, newLang };
 }

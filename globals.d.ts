@@ -30,3 +30,7 @@ declare interface IInitialContext {
 declare interface IInitLangContext {
   changeLang: (lang: string) => void;
 }
+
+declare interface IVocabulary {
+  [key: string]: { [key: string]: string };
+}

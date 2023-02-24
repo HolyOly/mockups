@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export const langPack: any = {
+export const langPack: IVocabulary = {
   headerAbout: {
     en: 'About',
     ru: 'О нас',
@@ -10,7 +9,7 @@ export const langPack: any = {
   },
   headerHome: {
     en: 'Home',
-    ru: 'Глвная',
+    ru: 'Главная',
   },
   headerCollections: {
     en: 'Collections',

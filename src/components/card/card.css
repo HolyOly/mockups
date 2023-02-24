@@ -19,11 +19,13 @@
 }
 
 .card__img {
+  position: relative;
   width: 100%;
   padding-bottom: 0;
   margin-bottom: -4px;
   transition: .7s;
-  overflow-y:scroll;
+  overflow-y: scroll;
+  z-index: -1;
 }
 
 .card__img:hover {

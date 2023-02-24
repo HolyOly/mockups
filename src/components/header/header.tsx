@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getLang } from '../../hooks/lang';
+import { useLang } from '../../hooks/lang';
 import { Burger } from '../burger/burger';
 import { LangContainer } from '../lang/langComponent';
 import { MobileMenu } from '../mobile-menu/mobileMenu';
 import './header.css';
 
-interface IHeader {
-  lang: string;
-}
-
-export function Header(props: IHeader) {
+export function Header() {
   const [windowSize, setSize] = useState(document.body.clientWidth);
   const [isOpenMenu, setOpenMenu] = useState(false);
   const mobileMenuRef = React.useRef<HTMLElement>(null);
   const burgerRef = React.useRef<HTMLElement>(null);
+
+  const { getLang } = useLang();
 
   function useOutsideAlerter(
     ref1: React.RefObject<HTMLElement>,
@@ -64,20 +62,20 @@ export function Header(props: IHeader) {
         <MobileMenu isClosing={!isOpenMenu} refProp={mobileMenuRef}></MobileMenu>
         <menu className="menu menu__left">
           <Link className="menu__link" to="/About">
-            {getLang('headerAbout', props.lang)}
+            {getLang('headerAbout')}
           </Link>
           <Link className="menu__link" to="/">
-            {getLang('headerHome', props.lang)}
+            {getLang('headerHome')}
           </Link>
           <Link className="menu__link" to="/Contacts">
-            {getLang('headerContacts', props.lang)}
+            {getLang('headerContacts')}
           </Link>
           <Link className="menu__link" to="/Collections">
-            {getLang('headerCollections', props.lang)}
+            {getLang('headerCollections')}
           </Link>
         </menu>
         <menu className="menu menu__right">
-          <LangContainer></LangContainer>
+          <LangContainer isMobile={false}></LangContainer>
           <Link className="menu__auth" to="/Auth">
             Auth
           </Link>

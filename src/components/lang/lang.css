@@ -2,12 +2,22 @@
 
 .lang__btn {
   border: none;
-  background-color: var(--header_color);
-  color: var(--light_beige_text);
-  transition: .7s;
+  background-color: transparent;
+  opacity: .85;
+  transition: .5s;
+}
+
+.lang-container {
+  display: flex;
 }
 
 .lang__btn:hover {
   cursor: pointer;
-  background-color: var(--white_transparent);
+  opacity: 1;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .lang-container {
+    gap: 15px;
+  }
 }

@@ -13,8 +13,6 @@ export function Collections() {
   const [isLoading, setLoadingStatus] = useState(false);
   const searchVal = useRef<HTMLInputElement>(null);
 
-  //TODO Learn useCallback hook
-
   const getValueFromInput = (e: ChangeEvent) => {
     const target = e.target as HTMLInputElement;
     setLoadingStatus(true);

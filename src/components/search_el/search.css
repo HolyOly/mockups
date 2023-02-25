@@ -1,5 +1,6 @@
 .search {
   position: relative;
+  z-index: -1;
   max-width: 300px;
   left: 50%;
   margin-left: -150px;

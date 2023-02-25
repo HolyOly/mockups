@@ -76,12 +76,12 @@ export function Header() {
         </menu>
         <menu className="menu menu__right">
           <LangContainer isMobile={false}></LangContainer>
-          <Link className="menu__auth" to="/Auth">
-            Auth
+          <Link className="menu__auth" to="/Login">
+            Log in
           </Link>
-          <Link className="menu__auth" to="/Registration">
+          {/* <Link className="menu__auth" to="/Registration">
             Registration
-          </Link>
+          </Link> */}
         </menu>
       </div>
     </header>

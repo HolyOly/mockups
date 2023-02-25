@@ -58,7 +58,7 @@ export function ContactForm() {
           ></textarea>
         </div>
         <button type="submit" onClick={handleSubmit}>
-          Sent mes sage
+          Sent message
         </button>
       </form>
     </div>

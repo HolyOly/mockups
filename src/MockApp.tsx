@@ -9,6 +9,7 @@ import { Header } from './components/header/header';
 import Footer from './components/footer/footer';
 import { UndefinedPage } from './components/undefinedPage/undefinedPage';
 import { useLang } from './hooks/lang';
+import { Login } from './components/log_in/login';
 
 export const LangContext = React.createContext<IInitLangContext>({
   changeLang: () => {},
@@ -31,6 +32,7 @@ function MockApp() {
             <Route path="/About" element={<About />}></Route>
             <Route path="/Contacts" element={<Contacts />}></Route>
             <Route path="/Collections" element={<Collections />}></Route>
+            <Route path="/Login" element={<Login />}></Route>
             {/* <Route path="/Auth" element={<Auth />}></Route> */}
             <Route path="*" element={<UndefinedPage />}></Route>
           </Routes>

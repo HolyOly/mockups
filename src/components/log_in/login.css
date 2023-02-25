@@ -1,0 +1,20 @@
+@import '../../style-lib/ui_lib.css';
+
+.login__form {
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 400px;
+}
+
+.login__title {
+  text-align: center;
+}
+
+h4 {
+  font-size:  24px; 
+  font-weight:  400; 
+  color:  #00000088; 
+  opacity:  .85; 
+}

@@ -11,8 +11,7 @@
   top: 0;
   left: -400px;
   bottom: 0;
-  width: 70%;
-  max-width: 300px;
+  width: 250px;
   background-color: rgba(0, 0, 0, 0.9);
   gap: 35px;
   transition: .7s;

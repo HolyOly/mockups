@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useLang } from '../../hooks/lang';
+import { useLang } from '../../hooks/useLang';
 import { LangContainer } from '../lang/langComponent';
 import './mobileMenu.css';
 
@@ -8,7 +8,7 @@ export function MobileMenu(props: { refProp: React.LegacyRef<HTMLElement>; isClo
   const { getLang } = useLang();
 
   return (
-    <menu ref={props.refProp} className={`menu__mobile ${props.isClosing ? 'close' : 'open'}`}>
+    <menu ref={props.refProp} className={`menu__mobile ${props.isClosing ? '' : 'open'}`}>
       <Link className="menu__mobile-item" to="/About">
         {getLang('headerAbout')}
       </Link>

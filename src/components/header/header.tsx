@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLang } from '../../hooks/lang';
+import { useLang } from '../../hooks/useLang';
+import { useOutsideAlerter } from '../../hooks/useOutsideClick';
+import { LayoutContext } from '../../MockApp';
 import { Burger } from '../burger/burger';
 import { LangContainer } from '../lang/langComponent';
 import { MobileMenu } from '../mobile-menu/mobileMenu';
@@ -9,35 +11,15 @@ import './header.css';
 export function Header() {
   const [windowSize, setSize] = useState(document.body.clientWidth);
   const [isOpenMenu, setOpenMenu] = useState(false);
+  const { hideMainSection } = useContext(LayoutContext);
+
   const mobileMenuRef = React.useRef<HTMLElement>(null);
   const burgerRef = React.useRef<HTMLElement>(null);
 
   const { getLang } = useLang();
 
-  function useOutsideAlerter(
-    ref1: React.RefObject<HTMLElement>,
-    ref2: React.RefObject<HTMLElement>
-  ) {
-    useEffect(() => {
-      function handleClickOutside(target: Node | null) {
-        if (!ref1.current?.contains(target) && !ref2.current?.contains(target)) {
-          setOpenMenu(false);
-        }
-        if (ref1.current?.contains(target) && target?.nodeName === 'A') {
-          setOpenMenu(false);
-        }
-      }
-      document.addEventListener('mousedown', (e) => handleClickOutside(e.target as Node | null));
-      return () => {
-        document.removeEventListener('mousedown', (e) =>
-          handleClickOutside(e.target as Node | null)
-        );
-      };
-    }, [ref1, ref2]);
-  }
-
   document.addEventListener('resize', () => setSize(document.body.clientWidth));
-  useOutsideAlerter(mobileMenuRef, burgerRef);
+  useOutsideAlerter(mobileMenuRef, burgerRef, setOpenMenu, hideMainSection);
   const handleResize = () => {
     setSize(document.body.clientWidth);
   };
@@ -48,6 +30,7 @@ export function Header() {
 
   const handleBurgerClick = () => {
     setOpenMenu(!isOpenMenu);
+    hideMainSection(isOpenMenu);
   };
 
   return (
@@ -76,11 +59,8 @@ export function Header() {
         </menu>
         <menu className="menu menu__right">
           <LangContainer isMobile={false}></LangContainer>
-          <Link className="menu__auth" to="/Auth">
-            Auth
-          </Link>
-          <Link className="menu__auth" to="/Registration">
-            Registration
+          <Link className="menu__auth" to="/Login">
+            Log in
           </Link>
         </menu>
       </div>

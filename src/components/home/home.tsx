@@ -1,8 +1,7 @@
-import React, { ChangeEvent, useEffect, useReducer, useRef } from 'react';
+import React, { useEffect, useReducer, useRef } from 'react';
 import './home.css';
 import { cardsInfo } from '../../data/cards_data';
 import Card from '../card/card';
-import { SearchInput } from '../search_el/search_el';
 import { filtersData } from '../../data/filters_data';
 import Filter from '../filters/filter';
 import { ReactComponent as FilterSvg } from '../../assets/svg/filter.svg';
@@ -64,12 +63,6 @@ export function Home() {
   const [state, dispatch] = useReducer(reducer, defaultState);
   const searchVal = useRef<HTMLInputElement>(null);
 
-  const handleSearchBar = (e: ChangeEvent) => {
-    e.preventDefault();
-    dispatch({ type: ReducerActionKind.TYPING });
-    setTimeout(() => dispatch({ type: ReducerActionKind.NO_TYPING }), 1000);
-  };
-
   const hendlerPressEnter = () => {
     if (searchVal.current && searchVal.current.value !== '') {
       temoraryBufferForQuery.push(searchVal.current.value);
@@ -92,8 +85,6 @@ export function Home() {
 
   return (
     <div>
-      <SearchInput refProp={searchVal} onChangeHandler={handleSearchBar}></SearchInput>
-      {state.boxUnderSearchbar && <div className="typing-box">{state.boxUnderSearchbar}</div>}
       <div className="home">
         <div className="home__wrapper">
           <div className="home__filter">

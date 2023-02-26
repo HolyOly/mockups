@@ -7,6 +7,8 @@
   --text_very_secondary: #9a9998b4;
   --white_transparent: #ffffff14;
   --light_beige_text: antiquewhite;
+  --cute_background: #f3f2f2;
+  --form_color: #b69de6;
 
   --main_content_width: 1200px;
   --main_content_width_mobile: 300px;
@@ -15,6 +17,7 @@
 
   --font-size-xs: 15px;
   --font-size-accent: 30px;
+  --displacement_animation: 3px;
 }
 
 .filter__items {
@@ -25,4 +28,12 @@
   align-self: center;
   justify-content: space-between;
   gap: 10px;
+}
+
+.basic-form-container {
+  background:  #ffffff; 
+  border-radius:  4px; 
+  box-shadow:  0px 2px 6px -1px rgba(0,0,0,.12);
+  padding:  40px 30px; 
+  background:  #fefefe; 
 }

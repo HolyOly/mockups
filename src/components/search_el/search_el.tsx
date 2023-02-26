@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { RefObject } from 'react';
 import { ReactComponent as ReactLogo } from './search.svg';
 import './search.css';

@@ -7,24 +7,20 @@
   flex-direction: column;
   margin-top: 0;
   height: 100%;
-  z-index: 2;
+  z-index: 4;
   top: 0;
   left: -400px;
   bottom: 0;
   width: 70%;
   max-width: 300px;
   background-color: rgba(0, 0, 0, 0.9);
-  overflow: hidden;
   gap: 35px;
+  transition: .7s;
 }
 
 .open {
-  animation: moveToRight 1s ease-in-out;
+  animation: moveToRight .7s ease-in-out;
   left: 0;
-}
-
-.close {
-  animation: moveToLeft 1s ease-in-out;
 }
 
 @keyframes moveToRight {

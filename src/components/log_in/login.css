@@ -1,0 +1,52 @@
+@import '../../style-lib/ui_lib.css';
+
+.login__form {
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+  display: flex;
+  height: calc(100vh - 150px);
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  max-width: 500px;
+  height: auto;
+  align-content: flex-start;
+}
+
+.login__title {
+  text-align: center;
+}
+
+h4 {
+  font-size:  24px; 
+  font-weight:  400; 
+  color:  #00000088; 
+  opacity:  .85; 
+}
+
+.discrete {
+  color: #00000070;
+  font-size:  14px; 
+  border-bottom:  solid 1px #00000005;
+  font-weight:  300; 
+  transition:  all .3s ease; 
+}
+
+a.discrete:hover {
+  border-bottom:  solid 1px rgba(#000, .2);
+}
+
+a.discrete:visited {
+  border-bottom:  solid 1px rgba(#000, .2);
+}
+
+.paddings {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

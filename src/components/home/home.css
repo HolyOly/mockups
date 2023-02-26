@@ -48,9 +48,10 @@
   display: none;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 0px) and (max-width: 767px) {
   .home__wrapper {
     flex-direction: column;
+    margin-top: 90px;
   }
 
   .home__filter {

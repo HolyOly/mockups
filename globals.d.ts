@@ -31,6 +31,10 @@ declare interface IInitLangContext {
   changeLang: (lang: string) => void;
 }
 
+declare interface IInitLayoutContext {
+  hideMainSection: (isShow: boolean) => void;
+}
+
 declare interface IVocabulary {
   [key: string]: { [key: string]: string };
 }

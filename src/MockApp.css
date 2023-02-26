@@ -8,6 +8,12 @@
 .main {
   width: var(--main_content_width);
   margin: 0 auto;
+  transition: .7s;
+}
+
+.hide-main {
+  transition: .7s;
+  transform: translateX(1000px);
 }
 
 @media (min-width: 320px) and (max-width: 767px) {

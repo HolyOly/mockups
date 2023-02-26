@@ -3,6 +3,8 @@ import { Button } from '../buttons/btn';
 import { Input } from '../inputs/inputCommon';
 import './login.css';
 
+// see https://codepen.io/elujambio/pen/YLMVed?editors=1100
+
 export function Login() {
   const [person, setPerson] = useState({ firstName: '', surName: '', email: '', message: '' });
 
@@ -22,7 +24,7 @@ export function Login() {
         <div className="login__title">
           <h4>Log in</h4>
         </div>
-        <div className="form-control">
+        <div className="login__input">
           <Input
             type={'email'}
             id={''}
@@ -34,7 +36,7 @@ export function Login() {
             onChange={() => console.log('')}
           ></Input>
         </div>
-        <div className="form-control">
+        <div className="login__input">
           <Input
             type={'text'}
             id={''}
@@ -49,9 +51,12 @@ export function Login() {
         <Button
           type={'submit'}
           placeholder={'Log in'}
-          className={'login'}
+          className={'login paddings'}
           onClick={handleSubmit}
         ></Button>
+        <a href="https://" className="discrete" rel="noreferrer">
+          Register if you don&apos;t already have an account.
+        </a>
       </form>
     </div>
   );

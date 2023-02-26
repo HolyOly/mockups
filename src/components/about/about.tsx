@@ -1,9 +1,10 @@
 import React from 'react';
+import './about.css';
 
 function About() {
   return (
-    <>
-      <h1>LoremIpsum LoremIpsum</h1>
+    <div className="about">
+      <h2 className="about-title">LoremIpsum LoremIpsum</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua. Eget nullam non nisi est sit amet facilisis magna etiam.
@@ -17,7 +18,7 @@ function About() {
         scelerisque purus semper eget. Proin libero nunc consequat interdum varius sit amet.
         Sagittis eu volutpat odio facilisis. Dolor purus non enim praesent elementum facilisis leo.
       </p>
-    </>
+    </div>
   );
 }
 export default About;

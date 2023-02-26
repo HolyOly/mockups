@@ -29,7 +29,6 @@ function MockApp() {
   };
 
   const hideMainSection = (isShow: boolean): void => {
-    //hide-main
     setMain(isShow);
   };
 

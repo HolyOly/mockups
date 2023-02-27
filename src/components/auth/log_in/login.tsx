@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Button } from '../buttons/btn';
-import { Input } from '../inputs/inputCommon';
-import './login.css';
+import { Link } from 'react-router-dom';
+import { useLang } from '../../../hooks/useLang';
+import { Button } from '../../buttons/btn';
+import { Input } from '../../inputs/inputCommon';
+import '../auth.css';
 
 // see https://codepen.io/elujambio/pen/YLMVed?editors=1100
 
 export function Login() {
   const [person, setPerson] = useState({ firstName: '', surName: '', email: '', message: '' });
+  const { getLang } = useLang();
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -22,29 +25,25 @@ export function Login() {
     <div className="login__form">
       <form className="form-container basic-form-container">
         <div className="login__title">
-          <h4>Log in</h4>
+          <h4>{getLang('headerLogin')}</h4>
         </div>
         <div className="login__input">
           <Input
             type={'email'}
-            id={''}
+            realType={''}
             labelText={'Email:'}
             placeholder={'Email'}
             icon={'email'}
-            refInput={undefined}
-            value={undefined}
             onChange={() => console.log('')}
           ></Input>
         </div>
         <div className="login__input">
           <Input
             type={'text'}
-            id={''}
+            realType={'password'}
             labelText={'Password:'}
             placeholder={'Password'}
             icon={'password'}
-            refInput={undefined}
-            value={undefined}
             onChange={() => console.log('')}
           ></Input>
         </div>
@@ -54,9 +53,9 @@ export function Login() {
           className={'login paddings'}
           onClick={handleSubmit}
         ></Button>
-        <a href="https://" className="discrete" rel="noreferrer">
+        <Link className="discrete" to="/Registration">
           Register if you don&apos;t already have an account.
-        </a>
+        </Link>
       </form>
     </div>
   );

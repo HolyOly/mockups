@@ -8,7 +8,7 @@
   --white_transparent: #ffffff14;
   --light_beige_text: antiquewhite;
   --cute_background: #f3f2f2;
-  --form_color: #b69de6;
+  --form_color: #ac90df;
 
   --main_content_width: 1200px;
   --main_content_width_mobile: 300px;
@@ -33,7 +33,7 @@
 .basic-form-container {
   background:  #ffffff; 
   border-radius:  4px; 
-  box-shadow:  0px 2px 6px -1px rgba(0,0,0,.12);
+  box-shadow:  0px 2px 6px -1px rgba(0, 0, 0, 0.166);
   padding:  40px 30px; 
   background:  #fefefe; 
 }

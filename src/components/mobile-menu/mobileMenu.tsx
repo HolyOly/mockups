@@ -21,6 +21,9 @@ export function MobileMenu(props: { refProp: React.LegacyRef<HTMLElement>; isClo
       <Link className="menu__mobile-item" to="/Collections">
         {getLang('headerCollections')}
       </Link>
+      <Link className="menu__mobile-item" to="/Login">
+        {getLang('headerLogin')}
+      </Link>
       <div className="menu__mobile-item">
         <LangContainer isMobile={true}></LangContainer>
       </div>

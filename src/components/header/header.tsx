@@ -60,7 +60,7 @@ export function Header() {
         <menu className="menu menu__right">
           <LangContainer isMobile={false}></LangContainer>
           <Link className="menu__auth" to="/Login">
-            Log in
+            {getLang('headerLogin')}
           </Link>
         </menu>
       </div>

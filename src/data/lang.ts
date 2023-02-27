@@ -15,4 +15,8 @@ export const langPack: IVocabulary = {
     en: 'Collections',
     ru: 'Галерея',
   },
+  headerLogin: {
+    en: 'Log in',
+    ru: 'Войти',
+  },
 };

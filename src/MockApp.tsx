@@ -9,7 +9,8 @@ import { Header } from './components/header/header';
 import Footer from './components/footer/footer';
 import { UndefinedPage } from './components/undefinedPage/undefinedPage';
 import { useLang } from './hooks/useLang';
-import { Login } from './components/log_in/login';
+import { Login } from './components/auth/log_in/login';
+import { Registration } from './components/auth/registration/registration';
 
 export const LangContext = React.createContext<IInitLangContext>({
   changeLang: () => {},
@@ -44,7 +45,7 @@ function MockApp() {
               <Route path="/Contacts" element={<Contacts />}></Route>
               <Route path="/Collections" element={<Collections />}></Route>
               <Route path="/Login" element={<Login />}></Route>
-              {/* <Route path="/Auth" element={<Auth />}></Route> */}
+              <Route path="/Registration" element={<Registration />}></Route>
               <Route path="*" element={<UndefinedPage />}></Route>
             </Routes>
           </main>

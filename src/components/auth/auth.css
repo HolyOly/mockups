@@ -27,22 +27,23 @@ h4 {
   font-size:  24px; 
   font-weight:  400; 
   color:  #00000088; 
-  opacity:  .85; 
+  opacity: .9;
 }
 
 .discrete {
-  color: #00000070;
+  color: #00000076;
+  width: fit-content;
   font-size:  14px; 
-  border-bottom:  solid 1px #00000005;
+  border-bottom:  solid 1px #00000013;
   font-weight:  300; 
   transition:  all .3s ease; 
 }
 
-a.discrete:hover {
+.discrete:hover {
   border-bottom:  solid 1px rgba(#000, .2);
 }
 
-a.discrete:visited {
+.discrete:visited {
   border-bottom:  solid 1px rgba(#000, .2);
 }
 

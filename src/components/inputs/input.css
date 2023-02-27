@@ -14,7 +14,7 @@ input {
   padding: 20px 0px;
   height: 56px;
   border: none;
-  border-bottom: solid 1px rgba(0,0,0,.1);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.131);
   background: #fff;
   width: calc(100% - 44px);
   box-sizing: border-box;
@@ -61,24 +61,44 @@ input:not(:valid):not(:focus) + label + .icon {
   animation-duration: .3s;
 }
 
+.icon,
+.password-icon,
+.icon-container_general {
+  position: absolute;
+  top: 0;
+  height: 56px;
+  width: 44px;
+  display: flex;
+}
 
 .icon {
-  position: absolute;
-  top:  0; 
-  left:  0; 
-  height:  56px; 
-  width:  44px; 
-  display:  flex; 
+  left: 0;
+}
+.password-icon {
+  right: 0;
+}
+
+.pass-eye-svg,
+.input-icons-svg,
+.svg-icon_general {
+  fill: rgb(182,157,230);
+  width: auto;
+  margin: auto;
+  opacity: .8;
 }
 
 .input-icons-svg {
-  fill: rgb(182,157,230);
-  height:  40px; 
-  width:  auto; 
-  margin:  20px; 
-  margin:  auto;
-  opacity:  .8; 
-  transition:  all .3s ease; 
+  height: 40px;
+  transition: all .3s ease;
+}
+
+.pass-eye-svg {
+  height: 30px;
+  transition: all 1s ease;
+}
+
+.input-login {
+  width: 35px;
 }
 
 @keyframes shake-shake {

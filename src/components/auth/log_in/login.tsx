@@ -8,14 +8,23 @@ import '../auth.css';
 // see https://codepen.io/elujambio/pen/YLMVed?editors=1100
 
 export function Login() {
-  const [person, setPerson] = useState({ firstName: '', surName: '', email: '', message: '' });
+  const [person, setPerson] = useState({ login: '', password: '' });
   const { getLang } = useLang();
+
+  const loginRef = React.useRef<HTMLInputElement>(null);
+  const passwordRef = React.useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    // temporary solution
+    const tempLogin = 'holyoly';
+    const tempPass = 'lol';
+    if (person.login == tempLogin && person.password == tempPass) {
+      window.location.replace('Me');
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.value;
     setPerson({ ...person, [name]: value });
@@ -30,11 +39,12 @@ export function Login() {
         <div className="login__input">
           <Input
             type={'email'}
-            realType={''}
+            realType={'login'}
             labelText={'Email:'}
             placeholder={'Email'}
             icon={'email'}
-            onChange={() => console.log('')}
+            refInput={loginRef}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
           ></Input>
         </div>
         <div className="login__input">
@@ -44,7 +54,8 @@ export function Login() {
             labelText={'Password:'}
             placeholder={'Password'}
             icon={'password'}
-            onChange={() => console.log('')}
+            refInput={passwordRef}
+            onChange={handleChange}
           ></Input>
         </div>
         <Button

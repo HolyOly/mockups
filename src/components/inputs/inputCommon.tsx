@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { LegacyRef, useState } from 'react';
 import { ReactComponent as EmailSvg } from '../../assets/svg/email-login.svg';
 import { ReactComponent as PassSvg } from '../../assets/svg/password-login.svg';
 import { ReactComponent as EyeOpenSvg } from '../../assets/svg/eye-open.svg';
@@ -14,9 +14,9 @@ interface IInput {
   id?: string;
   labelText?: string | undefined;
   placeholder?: string | undefined;
-  refInput?: React.LegacyRef<HTMLInputElement> | undefined;
+  refInput?: LegacyRef<HTMLInputElement> | undefined;
   value?: string | undefined;
-  onChange?: () => void | undefined;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export function Input({
@@ -43,12 +43,11 @@ export function Input({
       <input
         placeholder={placeholder}
         type={inputType}
-        name={type}
+        name={realType}
         id={id}
         ref={refInput}
         value={value}
         onChange={onChange}
-        autoComplete="off"
       ></input>
       <label htmlFor={id}>{labelText}</label>
       <div className="icon">

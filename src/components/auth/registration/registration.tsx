@@ -11,11 +11,11 @@ export function Registration() {
     e.preventDefault();
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setPerson({ ...person, [name]: value });
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  //   const name = e.target.name;
+  //   const value = e.target.value;
+  //   setPerson({ ...person, [name]: value });
+  // };
 
   return (
     <div className="login__form">

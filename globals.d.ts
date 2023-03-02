@@ -1,4 +1,5 @@
 declare module '*.png';
+declare module '*.jpeg';
 declare module '*.svg';
 
 declare interface ICard {

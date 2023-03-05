@@ -41,6 +41,7 @@ export function Input({
   return (
     <div className="floating-label">
       <input
+        className="input"
         placeholder={placeholder}
         type={inputType}
         name={realType}

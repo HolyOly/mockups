@@ -1,10 +1,10 @@
 import React, { useReducer, useState } from 'react';
+import { ProfilesData } from '../../data/users_data';
 import './profile.css';
-import { ReactComponent as UserPhoto } from '../../assets/img/default-user.png';
-import { ReactComponent as CoverPhoto } from '../../assets/img/default-background.png';
 
 // TODO profile idea https://dribbble.com/shots/19337773-User-profile-Untitled-UI
 // https://dribbble.com/shots/5581599-027-100-Daily-UI-Intranet-Employee-Profile/attachments/5581599?mode=media
+// icons for info https://www.svgrepo.com/collection/primeng-interface-icons/2
 
 enum ProfileActionKind {
   CHANGE_NAME = 'CHANGE_NAME',
@@ -23,42 +23,6 @@ enum ProfileActionKind {
   CHANGE_PERSONAL_SITE = 'CHANGE_PERSONAL_SITE',
 }
 
-interface IStateUserProfile {
-  name: string;
-  photo: string;
-  coverPhoto: string;
-  status: string;
-  job: string;
-  university: string;
-  location_1: string;
-  location_2: string;
-  birthday: string;
-  email: string;
-  phone: string;
-  instagram: string;
-  linkedin: string;
-  personalSite: string;
-  draft: string;
-}
-
-const InitialStateUserProfile: IStateUserProfile = {
-  name: '',
-  photo: '',
-  coverPhoto: '',
-  status: '',
-  job: '',
-  university: '',
-  location_1: '',
-  location_2: '',
-  birthday: '',
-  email: '',
-  phone: '',
-  instagram: '',
-  linkedin: '',
-  personalSite: '',
-  draft: '',
-};
-
 interface IReducerUserProfileAction {
   newDraft: string;
   type: ProfileActionKind;
@@ -73,23 +37,13 @@ const reducer = (
     case ProfileActionKind.CHANGE_NAME:
       return {
         ...state,
-        name: action.newDraft,
+        // firstName: action.newDraft,
         // draft: action.newDraft,
-      };
-    case ProfileActionKind.CHANGE_PHOTO:
-      return {
-        ...state,
-        photo: '',
-      };
-    case ProfileActionKind.CHANGE_COVER_PHOTO:
-      return {
-        ...state,
-        coverPhoto: '',
       };
     case ProfileActionKind.CHANGE_STATUS:
       return {
         ...state,
-        status: '',
+        // status: '',
       };
     default:
       return state;
@@ -97,56 +51,73 @@ const reducer = (
 };
 
 export function Profile() {
-  const [state, dispatch] = useReducer(reducer, InitialStateUserProfile);
+  const [state, dispatch] = useReducer(reducer, ProfilesData[0]);
   const [editHeader, setEditHeader] = useState(false);
+  console.log(state);
   return (
     <div className="profile__container">
-      <div className="profile__left-menu"></div>
-      <div className="profile__content">
+      <div className="profile__left-menu flex-column-gap-10 block_ui">
+        <div className="menu-item">Favorites</div>
+        <div className="menu-item">Notifications</div>
+        <div className="menu-item">Preferences</div>
+        <div className="menu-item">Feedback</div>
+      </div>
+      <div className="profile__content flex-column-gap-10">
         <div className="profile__header block_ui">
-          <div className="profile__cover"></div>
-          <div className="profile__header__main">
-            <div className="user_name">{state.name}</div>
-            {editHeader && (
-              <input
-                type="text"
-                value={state.name}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  dispatch({ type: ProfileActionKind.CHANGE_NAME, newDraft: e.target.value });
-                  console.log(state);
-                }}
-              />
-            )}
-            <div className="user_status">{state.status}</div>
-          </div>
-          <div className="profile__photo"></div>
+          <div
+            className="profile__cover"
+            style={{ backgroundImage: `url(${state.coverPhoto})` }}
+          ></div>
+          <div className="user_status">{state.status}</div>
+          <img className="profile__photo" src={state.photo}></img>
+          {editHeader ? (
+            <input
+              type="text"
+              className="input-name"
+              value={state.firstName + '' + state.surName}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                dispatch({ type: ProfileActionKind.CHANGE_NAME, newDraft: e.target.value });
+                console.log(state);
+              }}
+            />
+          ) : (
+            <h2 className="user_name">{state.firstName + ' ' + state.surName}</h2>
+          )}
           <div className="dots_settings">
-            <button
-              type="button"
-              onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-                setEditHeader(!editHeader)
-              }
-            >
+            <button type="button" onClick={() => setEditHeader(!editHeader)}>
               . . .
             </button>
           </div>
         </div>
-        <div className="profile__info block_ui">
-          <div className="profile__intro">
-            <div className="block-header">Introduction</div>
-            <div className="job-position"></div>
-            <div className="university"></div>
-            <div className="location_1">Live in </div>
-            <div className="location_2"></div>
-            <div className="birthday"></div>
+        <div className="profile-info-wrapper">
+          <div className="profile__info flex-column-gap-10">
+            <div className="profile__intro flex-column-padding-10 block_ui">
+              <div className="block-header">Introduction</div>
+              <div className="job-position">
+                {state.jobPosition} at {state.jobCompany}
+              </div>
+              <div className="university">{state.university}</div>
+              <div className="location_1">Live in {state.location_1}</div>
+              {/* <div className="location_2">Other location {state.location_2}</div> */}
+              <div className="birthday">Birthday {state.birthday}</div>
+            </div>
+            <div className="profile__contacts flex-column-padding-10 block_ui">
+              <div className="block-header">Contacts</div>
+              <div className={state.email ? 'email' : 'displayNone'}>Еmail {state.email}</div>
+              <div className={state.phone ? 'phone' : 'displayNone'}>Phone {state.phone}</div>
+              <div className={state.instagram ? 'instagram' : 'displayNone'}>
+                Inst: {state.instagram}
+              </div>
+              <div className={state.linkedin ? 'linkedin' : 'displayNone'}>
+                Linkedin: {state.linkedin}
+              </div>
+              <div className={state.personalSite ? 'personal-site' : 'displayNone'}>
+                Personal website: <a href={state.personalSite}>link</a>
+              </div>
+            </div>
           </div>
-          <div className="profile__contacts block_ui">
-            <div className="block-header">Contacts</div>
-            <div className="email"></div>
-            <div className="phone"></div>
-            <div className="instagram"></div>
-            <div className="linkedin"></div>
-            <div className="personal-site"></div>
+          <div className="profile__wall flex-column-padding-10 block_ui">
+            <div className="block-header">Wall</div>
           </div>
         </div>
       </div>

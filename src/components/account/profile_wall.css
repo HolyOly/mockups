@@ -1,0 +1,59 @@
+@import '../../style-lib/ui_lib.css';
+
+.create_post_block {
+  height: 70px;
+  background-color: inherit;
+}
+
+.wall_inputs {
+  position: relative
+}
+
+.profile__wall_photo_size {
+  height: 30px;
+  width: 30px;
+  left: 0;
+  top: 0;
+}
+
+.input-text-wall {
+  position: absolute;
+  width: calc(100% - 120px);
+  line-height: 1;
+  left: 40px;
+  top: 0;
+  font-size: 20px;
+  border-width: 0;
+  resize: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.input-text-wall:focus,
+.input-text-wall:active {
+  border: none;
+}
+
+input[type="file"] { 
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+}
+
+.attach_file_btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: transparent;
+  border: 0;
+}
+
+.attach_file_btn:hover {
+  cursor: pointer;
+}
+
+.attach-svg {
+  width: 25px;
+  height: auto;
+  fill: var(--text_very_secondary);
+}

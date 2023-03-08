@@ -56,12 +56,15 @@
 
 .profile__photo {
   position: absolute;
-  left: 15px;
-  bottom: 20px;
-  height: 90px;
-  width: 90px;
   border-radius: 50%;
   overflow: hidden;
+}
+
+.profile__photo_size {
+  height: 90px;
+  width: 90px;
+  left: 15px;
+  bottom: 20px;
 }
 
 .user_name {

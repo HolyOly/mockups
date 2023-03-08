@@ -59,3 +59,13 @@ declare interface IStateUserProfile {
   personalSite: string;
   draft: string;
 }
+
+declare interface IWallData {
+  date: string;
+  author: string;
+  id: string;
+  text: string;
+  media: File[] | null | undefined;
+  likes: number;
+  author_photo: string;
+}

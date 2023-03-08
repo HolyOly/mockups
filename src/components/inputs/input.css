@@ -8,7 +8,7 @@
   width: 100%;
 }
 
-input {
+.input {
   display: flex;
   font-size: 16px;
   padding: 20px 0px;
@@ -24,13 +24,13 @@ input {
   font-weight: 400;
 }
 
-input:focus {
+.input:focus {
   border-bottom: solid 1px rgb(182,157,230);
   outline: 0;
   box-shadow: 0 2px 6px -8px rgba(rgb(182,157,230), .45);
 }
 
-input:not(:placeholder-shown) {
+.input:not(:placeholder-shown) {
   padding: 28px 0px 12px 0px;
 }
 
@@ -46,17 +46,17 @@ label {
   padding-left: 44px;
 }
 
-input:not(:placeholder-shown) + label {
+.input:not(:placeholder-shown) + label {
   transform: translateY(-10px);
   opacity: .7;
 }
 
-input:valid:not(:placeholder-shown) + label + .icon .input-icons-svg {
+.input:valid:not(:placeholder-shown) + label + .icon .input-icons-svg {
   opacity: 1;
   fill: rgb(182,157,230);
 }
 
-input:not(:valid):not(:focus) + label + .icon {
+.input:not(:valid):not(:focus) + label + .icon {
   animation-name: shake-shake;
   animation-duration: .3s;
 }

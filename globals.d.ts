@@ -1,4 +1,5 @@
 declare module '*.png';
+declare module '*.jpeg';
 declare module '*.svg';
 
 declare interface ICard {
@@ -37,4 +38,34 @@ declare interface IInitLayoutContext {
 
 declare interface IVocabulary {
   [key: string]: { [key: string]: string };
+}
+
+declare interface IStateUserProfile {
+  firstName: string;
+  surName: string;
+  photo: string;
+  coverPhoto: string;
+  status: string;
+  jobPosition: string;
+  jobCompany: string;
+  university: string;
+  location_1: string;
+  location_2: string;
+  birthday: string;
+  email: string;
+  phone: string;
+  instagram: string;
+  linkedin: string;
+  personalSite: string;
+  draft: string;
+}
+
+declare interface IWallData {
+  date: string;
+  author: string;
+  id: string;
+  text: string;
+  media: File[] | null | undefined;
+  likes: number;
+  author_photo: string;
 }

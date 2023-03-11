@@ -8,11 +8,10 @@ export function useOutsideAlerter(
 ) {
   useEffect(() => {
     function handleClickOutside(target: Node | null) {
-      if (!ref1.current?.contains(target) && !ref2.current?.contains(target)) {
-        setOpenMenu(false);
-        hideMainSection(true);
-      }
-      if (ref1.current?.contains(target) && target?.nodeName === 'A') {
+      if (
+        (!ref1.current?.contains(target) && !ref2.current?.contains(target)) ||
+        (ref1.current?.contains(target) && target?.nodeName === 'A')
+      ) {
         setOpenMenu(false);
         hideMainSection(true);
       }

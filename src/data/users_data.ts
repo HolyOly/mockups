@@ -20,7 +20,6 @@ export const ProfilesData: IStateUserProfile[] = [
     instagram: 'holy0ly',
     linkedin: '',
     personalSite: 'https://holyoly.github.io/rsschool-cv/',
-    draft: '',
   },
   {
     firstName: 'Usatiy',
@@ -39,6 +38,5 @@ export const ProfilesData: IStateUserProfile[] = [
     instagram: '',
     linkedin: '',
     personalSite: '',
-    draft: '',
   },
 ];

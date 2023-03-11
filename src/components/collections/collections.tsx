@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { ICollectionItem, ICollections, makeUrl } from '../../services/getCollectios';
 import { SearchInput } from '../search_el/search_el';
 import './collections.css';
@@ -19,12 +19,13 @@ export function Collections() {
     setInputVal(target.value);
   };
 
-  useEffect(() => {
+  const fetchHandler = useCallback(async () => {
     fetch(makeUrl(valueInput))
       .then(async (resp) => {
         if (resp.status >= 200 && resp.status <= 299) {
           const collectionsResp: ICollections = await resp.json();
           setCollections(collectionsResp.results);
+          console.log(collections);
           return collections;
         } else {
           setRespError(true);
@@ -34,7 +35,11 @@ export function Collections() {
       .finally(() => {
         setLoadingStatus(false);
       });
-  }, [collections, valueInput]);
+  }, [valueInput]);
+
+  useEffect(() => {
+    fetchHandler();
+  }, [valueInput]);
 
   return (
     <div className="collection-page">

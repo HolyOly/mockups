@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent, useRef, useState } from 'react';
 import { ReactComponent as AttachIcon } from '../../assets/svg/paperclip.svg';
 import './profile.css';
 import './profile_wall.css';
@@ -6,22 +6,41 @@ import './profile_wall.css';
 export interface IProfileWall {
   userInfo: IStateUserProfile;
   wallInfo: IWallData;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 export function ProfileWall(props: IProfileWall) {
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const [isExpandTextArea, setIsExpandTextArea] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const textareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    props.onChange(e);
+    if (textareaRef.current?.value !== '') {
+      setIsExpandTextArea(true);
+    } else {
+      setIsExpandTextArea(false);
+    }
+  };
+
   return (
-    <div className="block_ui create_post_block flex-column-gap-10 flex-column-padding-10">
+    <div
+      className={`block_ui create_post_block flex-column-gap-10 flex-column-padding-10 ${
+        isExpandTextArea ? 'expand-block-height' : ''
+      }`}
+    >
       <div className="block-header">New Post</div>
       <div className="wall_inputs">
         <img className="profile__photo profile__wall_photo_size" src={props.userInfo.photo}></img>
         <textarea
-          name=""
+          name="post-text"
           id=""
-          rows={1}
+          rows={isExpandTextArea ? 5 : 1}
+          ref={textareaRef}
           className="input-text-wall"
           placeholder="What's new"
           autoFocus
+          onChange={textareaHandler}
         ></textarea>
         <input
           type="file"
@@ -34,6 +53,11 @@ export function ProfileWall(props: IProfileWall) {
           <AttachIcon></AttachIcon>
         </button>
       </div>
+      {isExpandTextArea && (
+        <button className="wall-post-btn-container" type="button">
+          Submit
+        </button>
+      )}
     </div>
   );
 }

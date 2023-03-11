@@ -1,6 +1,7 @@
 @import '../../style-lib/ui_lib.css';
 
 .create_post_block {
+  position: relative;
   background-color: inherit;
 }
 
@@ -60,4 +61,21 @@ input[type="file"] {
   width: 25px;
   height: auto;
   fill: var(--text_very_secondary);
+}
+
+.wall-post-btn-container {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 5px 15px;
+  background-color: #038abf;
+  border-radius: 10px;
+  border: none;
+  color: var(--header_links);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.wall-post-btn-container:hover {
+  cursor: pointer;
 }

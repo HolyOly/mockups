@@ -1,12 +1,16 @@
 @import '../../style-lib/ui_lib.css';
 
 .create_post_block {
-  height: 70px;
   background-color: inherit;
 }
 
+.expand-block-height {
+  height: 150px;
+}
+
 .wall_inputs {
-  position: relative
+  position: relative;
+  height: 35px;
 }
 
 .profile__wall_photo_size {

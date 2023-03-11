@@ -45,7 +45,7 @@ declare interface IStateUserProfile {
   surName: string;
   photo: string;
   coverPhoto: string;
-  status: string;
+  status: string | undefined;
   jobPosition: string;
   jobCompany: string;
   university: string;
@@ -57,15 +57,16 @@ declare interface IStateUserProfile {
   instagram: string;
   linkedin: string;
   personalSite: string;
-  draft: string;
 }
 
 declare interface IWallData {
   date: string;
   author: string;
   id: string;
-  text: string;
+  text: string | undefined;
   media: File[] | null | undefined;
   likes: number;
   author_photo: string;
 }
+
+declare interface IUserProfileDataActions extends IStateUserProfile, IWallData {}

@@ -1,6 +1,7 @@
-import React, { useReducer, useState } from 'react';
+import React, { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import { ProfilesData } from '../../data/users_data';
 import { WallData } from '../../data/wall_users_data';
+import { useOutsideClick } from '../../hooks/useOutsideClickProfile';
 import './profile.css';
 import { ProfileWall } from './profile_wall';
 
@@ -9,43 +10,42 @@ import { ProfileWall } from './profile_wall';
 // icons for info https://www.svgrepo.com/collection/primeng-interface-icons/2
 
 enum ProfileActionKind {
-  CHANGE_NAME = 'CHANGE_NAME',
   CHANGE_PHOTO = 'CHANGE_PHOTO',
   CHANGE_COVER_PHOTO = 'CHANGE_COVER_PHOTO',
-  CHANGE_STATUS = 'CHANGE_STATUS',
-  CHANGE_JOB = 'CHANGE_JOB',
-  CHANGE_UNIVERSITY = 'CHANGE_UNIVERSITY',
-  CHANGE_LOCATION_1 = 'CHANGE_LOCATION_1',
-  CHANGE_LOCATION_2 = 'CHANGE_LOCATION_2',
-  CHANGE_BIRTHDAY = 'CHANGE_BIRTHDAY',
-  CHANGE_EMAIL = 'CHANGE_EMAIL',
-  CHANGE_PHONE = 'CHANGE_PHONE',
-  CHANGE_INST = 'CHANGE_INST',
-  CHANGE_LINKEDIN = 'CHANGE_LINKEDIN',
-  CHANGE_PERSONAL_SITE = 'CHANGE_PERSONAL_SITE',
+  START_CHANGE_STATUS = 'START_CHANGE_STATUS',
+  CHANGE_WALL_POST = 'CHANGE_WALL_POST',
+  FOCUS_ON_TEXTAREA_WALL = 'FOCUS_ON_TEXTAREA_WALL',
+  OUT_OF_FOCUS_TEXTAREA_EMPTY = 'OUT_OF_FOCUS_TEXTAREA_EMPTY',
+  SUBMIT_WALL_POST = 'SUBMIT_WALL_POST',
+  EXPAND_WALL_TEXTAREA = 'EXPAND_WALL_TEXTAREA',
 }
 
+const allProfileData: IUserProfileDataActions = {
+  ...ProfilesData[1],
+  ...WallData[0],
+};
+
 interface IReducerUserProfileAction {
-  newDraft: string;
+  newDraft?: string;
+  isEditStatus?: boolean;
   type: ProfileActionKind;
 }
 
 const reducer = (
-  state: IStateUserProfile,
+  state: IUserProfileDataActions,
   action: IReducerUserProfileAction
-): IStateUserProfile => {
+): IUserProfileDataActions => {
   const { type } = action;
   switch (type) {
-    case ProfileActionKind.CHANGE_NAME:
+    case ProfileActionKind.START_CHANGE_STATUS:
       return {
         ...state,
-        // firstName: action.newDraft,
-        // draft: action.newDraft,
+        status: action.newDraft,
       };
-    case ProfileActionKind.CHANGE_STATUS:
+    case ProfileActionKind.CHANGE_WALL_POST:
       return {
         ...state,
-        // status: '',
+        text: action.newDraft,
       };
     default:
       return state;
@@ -53,9 +53,14 @@ const reducer = (
 };
 
 export function Profile() {
-  const [state, dispatch] = useReducer(reducer, ProfilesData[1]);
-  const [editHeader, setEditHeader] = useState(false);
+  const [state, dispatch] = useReducer(reducer, allProfileData);
+  const [editStatus, setEditStatus] = useState(false);
+  const inputStatusRef = useRef<HTMLInputElement>(null);
+
+  useOutsideClick(inputStatusRef, setEditStatus);
+
   console.log(state);
+
   return (
     <div className="profile__container">
       <div className="profile__left-menu flex-column-gap-10 block_ui">
@@ -70,21 +75,36 @@ export function Profile() {
             className="profile__cover"
             style={{ backgroundImage: `url(${state.coverPhoto})` }}
           ></div>
-          <div className="user_status">{state.status}</div>
+          <div className="user_status" ref={inputStatusRef}>
+            {!editStatus && <span>{state.status}</span>}
+            {editStatus && (
+              <input
+                type="text"
+                value={state.status}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  dispatch({
+                    type: ProfileActionKind.START_CHANGE_STATUS,
+                    newDraft: e.target.value,
+                  });
+                }}
+                autoFocus
+              />
+            )}
+          </div>
           <img className="profile__photo profile__photo_size" src={state.photo}></img>
-          {editHeader ? (
+          {/* {editHeader ? (
             <input
               type="text"
               className="input-name"
-              value={state.firstName + ' ' + state.surName}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                dispatch({ type: ProfileActionKind.CHANGE_NAME, newDraft: e.target.value });
-                console.log(state);
-              }}
-            />
-          ) : (
-            <h2 className="user_name">{state.firstName + ' ' + state.surName}</h2>
-          )}
+              value={state.firstName + ' ' + state.surName}}
+              // onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              //   dispatch({ type: ProfileActionKind.CHANGE_NAME, newDraft: e.target.value });
+              //   console.log(state);
+              // }}
+          //   />
+          // ) : (
+          //   <h2 className="user_name">{state.firstName + ' ' + state.surName}</h2>
+          // )}
           {/* <div className="dots_settings">
             <button type="button" onClick={() => setEditHeader(!editHeader)}>
               . . .
@@ -100,7 +120,6 @@ export function Profile() {
               </div>
               <div className="university">{state.university}</div>
               <div className="location_1">Live in {state.location_1}</div>
-              {/* <div className="location_2">Other location {state.location_2}</div> */}
               <div className={state.birthday ? 'birthday' : 'displayNone'}>
                 Birthday: {state.birthday}
               </div>
@@ -120,8 +139,17 @@ export function Profile() {
               </div>
             </div>
           </div>
-          <div className="profile__wall flex-column-padding-10">
-            <ProfileWall userInfo={ProfilesData[1]} wallInfo={WallData[0]}></ProfileWall>
+          <div className="profile__wall">
+            <ProfileWall
+              userInfo={ProfilesData[1]}
+              wallInfo={WallData[0]}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+                dispatch({
+                  type: ProfileActionKind.CHANGE_WALL_POST,
+                  newDraft: e.target.value,
+                });
+              }}
+            ></ProfileWall>
           </div>
         </div>
       </div>
